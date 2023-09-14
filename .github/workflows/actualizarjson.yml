@@ -4,6 +4,8 @@ on:
   release:
     types:
       - created
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   update:
@@ -12,13 +14,12 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-
+        
       - name: Set Release Title as Version
         run: echo '{"version":"'${{ github.event.release.name }}'"}' > version.json
-
+        
       - name: Commit and Push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
         run: |
           git config user.name "GitHub Actions"
           git config user.email "<>"
