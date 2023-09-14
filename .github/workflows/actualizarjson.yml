@@ -1,0 +1,27 @@
+name: Update Version
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set Release Title as Version
+        run: echo '{"version":"'${{ github.event.release.name }}'"}' > version.json
+
+      - name: Commit and Push changes
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+      run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+          git add version.json
+          git commit -m "Update version.json with release title"
+          git push
