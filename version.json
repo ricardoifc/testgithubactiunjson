@@ -2,6 +2,12 @@
    "appname":"testfirebaseapp",
    "versiones":[
       {
+         "numero_version":"1.0.5",
+         "fecha_lanzamiento":"2023-09-15",
+         "url":"https://github.com/ricardoifc/testgithubactiunjson/raw/main/app-debug.apk",
+         "notas_version":"Correcciones varias. v1.0.5"
+      },
+      {
          "numero_version":"1.0.4",
          "fecha_lanzamiento":"2023-09-14",
          "url":"https://github.com/ricardoifc/testgithubactiunjson/raw/main/app-debug.apk",
